@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>选择排序</h1>
+    <script>
+        function Sort(arr) {
+            for (let i = 0; i < sectionSort.length; i++) {
+                minIndex = i;
+                for (let j = i + 1; j < sectionSort.length; j++) {
+                    if (sectionSort[j] < sectionSort[minIndex]) {     //比较每一个数，寻找最小的数
+                        minIndex = j;                 // 保存最小数的索引地址
+                    }
+                }
+                temp = sectionSort[i];
+                sectionSort[i] = sectionSort[minIndex];       //将每一轮的最小数 与索引值为i的数交互位置
+                sectionSort[minIndex] = temp;
+            }
+        }
+        let sectionSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88, 66];
+        Sort(sectionSort)
+        console.log(sectionSort);
+    </script>
+</body>
+
+</html>
