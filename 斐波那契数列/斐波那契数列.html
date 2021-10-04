@@ -9,16 +9,39 @@
 </head>
 
 <body>
+    <h1>斐波那契数列</h1>
     <script>
+        // 递归方式   性能不好
+        // function fib(n) {
+        //     if (n === 0) return 0
+        //     if (n === 1) return 1
+        //     return fib(n - 1) + fib(n - 2)
+        // }
+        // console.time();
+        // console.log(fib(20));
+        // console.timeEnd();
 
+        //  空间换时间的实现
+        // function fib(n) {
+        //     let dict = [0n, 1n]            //使用大数
+        //     for (let i = 2; i <= n; i++) {
+        //         dict[i] = dict[i - 1] + dict[i - 2]
+        //     }
+        //     return dict[n]
+        // }
+        // console.log(fib(20))
+
+        //优化空间
         function fib(n) {
-            if (n === 0) return 0
-            if (n === 1) return 1
-            return fib(n - 1) + fib(n - 2)
+            let [v1, v2] = [0n, 1n]
+            for (let i = 2; i <= n; i++) {
+                [v1, v2] = [v2, v1 + v2]
+            }
+            return v2
         }
-        console.time();
-        console.log(fib(15));
-        console.timeEnd();
+        console.log(fib(20))
+
+
     </script>
 </body>
 
