@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>11111111</h1>
+    <h1>冒泡排序</h1>
     <script>
         /** 长度为n的数组从头开始比较。每个相邻位置两两比较，如果前一个大于后一个，则二者交换位置。
             对已经排好序的数不比较，循环比较n-1次 **/
@@ -23,11 +23,25 @@
                     }
                 }
             }
-            console.log(bubbleSort.length);
-            console.log(bubbleSort);
+            // console.log(bubbleSort.length);
+            // console.log(bubbleSort);
         }
         let bubbleSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
         sort(bubbleSort)
+        console.log(bubbleSort);
+        //测试冒泡排序的性能
+        //生成100到1000之间的随机数组    记录排序时间
+        function randomArr(arrLen = 100, maxValue = 1000) {
+            let arr = []
+            for (let i = 0; i < arrLen; i++) {
+                arr[i] = Math.floor((maxValue + 1) * Math.random())
+            }
+            return arr
+        }
+        let arr = randomArr(10000, 100)
+        console.time('bubleSort')        //开始时间
+        sort(bubbleSort)
+        console.timeEnd('bubleSort')      //结束时间
     </script>
 </body>
 
