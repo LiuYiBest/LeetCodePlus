@@ -11,18 +11,23 @@
 <body>
     <h1>11111111</h1>
     <script>
-        let bubbleSort = [10, 34, 21, 47, 3, 28];
-        for (let i = 0; i < bubbleSort.length; i++) {    //外层循环次数
-            for (let j = 0; j < bubbleSort.length; j++) {  //内层循环比较
-                if (bubbleSort[j] > bubbleSort[i]) {      //如果后面一个数字较大，则交换位置
-                    temp = bubbleSort[i];
-                    bubbleSort[i] = bubbleSort[j];
-                    bubbleSort[j] = temp;
+        /** 长度为n的数组从头开始比较。每个相邻位置两两比较，如果前一个大于后一个，则二者交换位置。
+            对已经排好序的数不比较，循环比较n-1次 **/
+        function sort(arr) {
+            for (let i = 0; i < bubbleSort.length; i++) {    //外层循环次数
+                for (let j = 0; j < bubbleSort.length; j++) {  //内层循环比较
+                    if (bubbleSort[j] > bubbleSort[i]) {      //如果后面一个数字较大，则交换位置
+                        temp = bubbleSort[i];
+                        bubbleSort[i] = bubbleSort[j];
+                        bubbleSort[j] = temp;
+                    }
                 }
             }
+            console.log(bubbleSort.length);
+            console.log(bubbleSort);
         }
-        console.log(bubbleSort.length);
-        console.log(bubbleSort);
+        let bubbleSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
+        sort(bubbleSort)
     </script>
 </body>
 
