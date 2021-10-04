@@ -26,11 +26,9 @@
             // console.log(bubbleSort.length);
             // console.log(bubbleSort);
         }
-        let bubbleSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
-        sort(bubbleSort)
-        console.log(bubbleSort);
+        // let bubbleSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
         //测试冒泡排序的性能
-        //随机生成1到100之间的10000个数所组成的数组    记录排序时间
+        //随机生成1到100之间的1000个数所组成的数组    记录排序时间
         function randomArr(arrLen, maxValue) {
             let arr = []
             for (let i = 0; i < arrLen; i++) {
@@ -38,10 +36,12 @@
             }
             return arr
         }
-        let arr = randomArr(10000, 100)       //第一个参数是数组长度，第二个参数是随机数1-100
-        console.log(arr)
+        let arr = randomArr(1000, 100)       //第一个参数是数组长度，第二个参数是随机数1-100
+        console.log(array)             //排序前
         console.time()        //开始时间
+        sort(arr)
         console.timeEnd()      //结束时间
+        console.log(arr);      ////排序后面
     </script>
 </body>
 

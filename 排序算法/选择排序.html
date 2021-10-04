@@ -10,10 +10,13 @@
 
 <body>
     <h1>选择排序</h1>
+    <!--    - 首先在没有排序的序列中找到最小（大）元素，存放到排序序列的起始位置。
+         - 再从剩余未排序元素中继续寻找最小（大）元素，==然后放到已排序序列的末尾。
+         - 重复第二步，直到所有元素均排序完毕。 -->
     <script>
-        function Sort(arr) {
+        function Sort(sectionSort) {
             for (let i = 0; i < sectionSort.length; i++) {
-                minIndex = i;
+                minIndex = i;             //  //每一轮的下标
                 for (let j = i + 1; j < sectionSort.length; j++) {
                     if (sectionSort[j] < sectionSort[minIndex]) {     //比较每一个数，寻找最小的数
                         minIndex = j;                 // 保存最小数的索引地址
@@ -24,9 +27,21 @@
                 sectionSort[minIndex] = temp;
             }
         }
-        let sectionSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88, 66];
-        Sort(sectionSort)
-        console.log(sectionSort);
+        // let bubbleSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
+        //随机生成1到100之间的1000个数所组成的数组    记录排序时间
+        function randomArr(arrLen, maxValue) {
+            let arr = []
+            for (let i = 0; i < arrLen; i++) {
+                arr[i] = Math.floor((maxValue + 1) * Math.random())    //生成随机整数
+            }
+            return arr
+        }
+        let array = randomArr(1000, 100)//第一个参数是数组长度，第二个参数是随机数1-100
+        console.log(array)             //排序前
+        console.time('Sort');
+        Sort(array)
+        console.timeEnd('Sort');
+        console.log(array);            //排序后
     </script>
 </body>
 
