@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>11111111</h1>
+    <script>
+        let bubbleSort = [10, 34, 21, 47, 3, 28];
+        for (let i = 0; i < bubbleSort.length; i++) {    //外层循环次数
+            for (let j = 0; j < bubbleSort.length; j++) {  //内层循环比较
+                if (bubbleSort[j] > bubbleSort[i]) {      //如果后面一个数字较大，则交换位置
+                    temp = bubbleSort[i];
+                    bubbleSort[i] = bubbleSort[j];
+                    bubbleSort[j] = temp;
+                }
+            }
+        }
+        console.log(bubbleSort.length);
+        console.log(bubbleSort);
+    </script>
+</body>
+
+</html>
