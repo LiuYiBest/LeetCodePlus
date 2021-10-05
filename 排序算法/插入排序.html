@@ -10,26 +10,46 @@
 
 <body>
     <script>
-        let mathSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
-        // 检查数据合法性
-        // if (arr == null && arr.length === 1) {
-        //     return;
-        // }
-        for (var i = 1; i < mathSort.length; i++) {  //从数组第二个位置开始比较
-            let num = mathSort[i];    //保存每次待插入的值
-            for (var j = i - 1; j >= 0; j--) {
-                //如果比num大  把值向后移动
-                temp = mathSort[j];
-                if (mathSort[j] > num) {
-                    mathSort[j + 1] = temp;
-                }
-                else {
-                    break
-                }
+        function InsertionSort(arr) {
+            // 检查数据合法性
+            if (arr === null && arr.length === 1) {
+                return;
             }
-            mathSort[j + 1] = num; //跳出对比则说明已经找到待排序元素的位置，将待排序元素添加进去
+            for (var i = 1; i < arr.length; i++) {  //从数组第二个位置开始比较
+                let num = arr[i];    //保存每次待插入的值
+                for (var j = i - 1; j >= 0; j--) {
+                    //如果比num大  把值向后移动
+                    temp = arr[j];
+                    if (arr[j] > num) {
+                        arr[j + 1] = temp;
+                    }
+                    else {
+                        break
+                    }
+                }
+                //跳出对比则说明已经找到待排序元素的位置，将待排序元素添加进去
+                arr[j + 1] = num;
+            }
+            return arr;
         }
-        console.log(mathSort)
+        // let mathSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
+        // console.log(InsertionSort(mathSort))
+
+        //测试插入排序的性能
+        //随机生成1到100之间的1000个数所组成的数组    记录排序时间
+        function randomArr(arrLen, maxValue) {
+            let arr = []
+            for (let i = 0; i < arrLen; i++) {
+                arr[i] = Math.floor((maxValue + 1) * Math.random())    //生成随机整数
+            }
+            return arr
+        }
+        let arr = randomArr(1000, 100)       //第一个参数是数组长度，第二个参数是随机数1-100
+        console.log(arr)             //排序前
+        console.time()        //开始时间
+        InsertionSort(arr)
+        console.timeEnd()      //结束时间
+        console.log(arr);      ////排序后面
     </script>
 </body>
 
