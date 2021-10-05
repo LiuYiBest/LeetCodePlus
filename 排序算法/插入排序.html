@@ -9,7 +9,28 @@
 </head>
 
 <body>
-
+    <script>
+        let mathSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
+        // 检查数据合法性
+        // if (arr == null && arr.length === 1) {
+        //     return;
+        // }
+        for (var i = 1; i < mathSort.length; i++) {  //从数组第二个位置开始比较
+            let num = mathSort[i];    //保存每次待插入的值
+            for (var j = i - 1; j >= 0; j--) {
+                //如果比num大  把值向后移动
+                temp = mathSort[j];
+                if (mathSort[j] > num) {
+                    mathSort[j + 1] = temp;
+                }
+                else {
+                    break
+                }
+            }
+            mathSort[j + 1] = num; //跳出对比则说明已经找到待排序元素的位置，将待排序元素添加进去
+        }
+        console.log(mathSort)
+    </script>
 </body>
 
 </html>
