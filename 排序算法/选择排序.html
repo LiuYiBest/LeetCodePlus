@@ -15,6 +15,10 @@
          - 重复第二步，直到所有元素均排序完毕。 -->
     <script>
         function Sort(sectionSort) {
+            // 检查数据合法性
+            if (arr === null && arr.length === 1) {
+                return;
+            }
             for (let i = 0; i < sectionSort.length; i++) {
                 minIndex = i;             //  //每一轮的下标
                 for (let j = i + 1; j < sectionSort.length; j++) {

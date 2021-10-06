@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function quickSort(arr) {
+            // 检查数据合法性 如果数组<=1,则直接返回arr
+            if (arr === null || arr.length <= 1) {
+                return arr;
+            }
+            //将第一个位置设置为基准
+            var num = arr[0]
+            //定义左右数组
+            let left = [], right = [];
+            //从数组的第二个位置开始比较 ，第一个为位置是基准 i是等于1  等于0会栈溢出报错
+            for (let i = 1; i < arr.length; i++) {
+                //比基准小的放在left，比基准大的放在right
+                if (arr[i] <= num) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+            //递归
+            return quickSort(left).concat(num, quickSort(right));
+        }
+        let mathSort = [10, 34, 21, 47, 3, 28, 99, 12, 12, 59, 88];
+        let a = quickSort(mathSort)
+        console.log(a)
+
+
+    </script>
+</body>
+
+</html>
