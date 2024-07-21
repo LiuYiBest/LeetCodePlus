@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两数之和</title>
+</head>
+
+<body>
+    <script>
+        // https://leetcode.cn/problems/two-sum/
+        nums = [3,2,4]
+        target = 6
+
+        var twoSum = function(nums, target) {
+            var numbers = []
+            if(nums.length<2){return false}
+            for(var i = 0 ; i<nums.length;i++){
+                for(var j = 0 ; j<nums.length;j++){
+                    if(nums[i]+nums[j]===target&&i!==j){
+                        numbers.push(i);
+                        numbers.push(j);
+                        return numbers;
+                    }
+                }
+            }
+        };
+
+      
+        console.log('result',  twoSum(nums,target))
+    </script>
+</body>
+
+</html>
