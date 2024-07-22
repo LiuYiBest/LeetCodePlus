@@ -11,25 +11,46 @@
 <body>
     <script>
         // https://leetcode.cn/problems/two-sum/
-        nums = [3,2,4]
-        target = 6
+        // 使用双重循环
+        // nums = [3, 2, 4]
+        // target = 6
+        // var twoSum = function (nums, target) {
+        //     var numbers = []
+        //     if (nums.length < 2) { return false }
+        //     for (var i = 0; i < nums.length; i++) {
+        //         for (var j = 0; j < nums.length; j++) {
+        //             if (nums[i] + nums[j] === target && i !== j) {
+        //                 numbers.push(i);
+        //                 numbers.push(j);
+        //                 return numbers;
+        //             }
+        //         }
+        //     }
+        // };
+        // console.log('result', twoSum(nums, target))
 
-        var twoSum = function(nums, target) {
-            var numbers = []
-            if(nums.length<2){return false}
-            for(var i = 0 ; i<nums.length;i++){
-                for(var j = 0 ; j<nums.length;j++){
-                    if(nums[i]+nums[j]===target&&i!==j){
-                        numbers.push(i);
-                        numbers.push(j);
-                        return numbers;
-                    }
-                }
+        // 使用map优化版
+        function twoSum(nums, target) {
+            if (nums.length < 2) {
+                return false;
             }
-        };
+            const map = new Map();
+            for (let i = 0; i < nums.length; i++) {
+                const complement = target - nums[i];
+                console.log('complement', complement);
+                if (map.has(complement)) {
+                    return [map.get(complement), i];
+                }
+                map.set(nums[i], i);
+                console.log('map', map);
+            }
+            return false;
+        }
 
-      
-        console.log('result',  twoSum(nums,target))
+        const nums = [3, 2, 4,11,7,6];
+        const target = 17;
+        console.log('result', twoSum(nums, target));
+
     </script>
 </body>
 
