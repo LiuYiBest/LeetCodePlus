@@ -11,18 +11,18 @@
 <body>
     <script>
         // https://leetcode.cn/problems/container-with-most-water/description/
+        // 双向指针
         var maxArea = function(height) {
             if(height.length<2) return [];
             let left = 0;
             let right = height.length-1;
             let max=0;
-            console.log("left",left,"right",right)
             for(let i=0;i<height.length-1;i++){
                 console.log('(height[left]',height[left],'height[right]',height[right])
                 //计算当前的面积
                 let area = (right-left)*Math.min(height[left],height[right]);
                 console.log('area',area)
-                //更新最大面积
+                //修改最大面积
                 if(area>max){
                     max=area;   
                 }
