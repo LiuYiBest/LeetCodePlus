@@ -10,12 +10,28 @@
 
 <body>
     <script>
-        // https://leetcode.cn/problems/combination-sum/description/
+        // https://leetcode.cn/problems/combination-sum/description/  题
 
-        var combinationSum = function (candidates, target) {
-
+        const combinationSum = (candidates, target) => {
+            const res = [];
+            const dfs = (start, temp, sum) => { 
+                if (sum >= target) {
+                    if (sum == target) {
+                        res.push(temp.slice()); 
+                    }
+                    return;   
+                }
+                for (let i = start; i < candidates.length; i++) { 
+                    temp.push(candidates[i]);        
+                    dfs(i, temp, sum + candidates[i]);
+                    temp.pop();  
+                }
+            };
+            dfs(0, [], 0);
+            return res;
         };
 
+        console.log('组合--', combinationSum([2, 3, 6, 7], 7));
     </script>
 </body>
 
