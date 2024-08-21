@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两数相加</title>
+</head>
+
+<body>
+    <script>
+        //https://leetcode.cn/problems/add-two-numbers/description/
+        var addTwoNumbers = function (l1, l2) {
+            let carry = 0;
+            let dummy = new ListNode(0);
+            let curr = dummy;
+            while (l1 || l2 || carry) { //当l1,l2,carry都为空时跳出循环
+                let sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + carry;
+                carry = sum >= 10 ? 1 : 0;
+                curr.next = new ListNode(sum % 10);
+                curr = curr.next;
+                if (l1) l1 = l1.next;
+                if (l2) l2 = l2.next;
+            }
+            return dummy.next;
+        };
+    </script>
+</body>
+
+</html>
