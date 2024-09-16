@@ -13,14 +13,10 @@
         // https://leetcode.cn/problems/search-in-rotated-sorted-array/
         var search = function (nums, target) {
             let start = 0, end = nums.length - 1;
-
             while (start <= end) {
                 const mid = start + Math.floor((end - start) / 2)
-
                 if (target == nums[mid]) return mid;
-
                 if (nums[mid] >= nums[start]) {
-
                     if (target >= nums[start] && target < nums[mid]) {
                         end = mid - 1;
                     } else {

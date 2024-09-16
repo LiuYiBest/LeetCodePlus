@@ -12,7 +12,17 @@
     <script>
         // https://leetcode.cn/problems/reverse-linked-list/description/
         var reverseList = function (head) {
-            
+            if (!head || !head.next) return head
+            let item = head
+            let prev = null
+            let next = item
+            while (item) {
+                next = item.next
+                item.next = prev
+                prev = item
+                item = next
+            }
+            return prev
         };
     </script>
 </body>
