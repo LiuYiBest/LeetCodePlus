@@ -11,16 +11,16 @@
 <body>
     <script>
         // https://leetcode.cn/problems/jump-game/
-      var canJump = function (nums) {
-        var instance = nums.length - 1
-        for (let i = nums.length - 2; i >= 0; i--) {
-            const e = nums[i];
-            if (nums[i] + i >= instance) {
-                instance = i
+        var canJump = function (nums) {
+            var instance = nums.length - 1
+            for (let i = nums.length - 2; i >= 0; i--) {
+                const e = nums[i];
+                if (nums[i] + i >= instance) {
+                    instance = i
+                }
             }
-        }
-        return instance == 0
-    };
+            return instance == 0
+        };
 
     </script>
 </body>
