@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合并两个有序数组</title>
+</head>
+
+<body>
+    <script>
+
+        // https://leetcode.cn/problems/merge-sorted-array/description/
+
+        var merge = function (nums1, m, nums2, n) {
+            let length = m + n
+            while (n > 0) {
+                if (m <= 0) {
+                    nums1[--length] = nums2[--n]
+                    continue
+                }
+                nums1[--length] = nums1[m - 1] >= nums2[n - 1] ? nums1[--m] : nums2[--n]
+            }
+        };
+
+
+    </script>
+</body>
+
+</html>
