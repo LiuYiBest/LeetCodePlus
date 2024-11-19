@@ -11,7 +11,20 @@
 <body>
     <script>
         //https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/
-     
+
+        var lowestCommonAncestor = function (root, p, q) {
+            if (!root || root === p || root === q) {
+                return root;
+            }
+            var left = lowestCommonAncestor(root.left, p, q);
+            var right = lowestCommonAncestor(root.right, p, q);
+            if (left && right) {
+                return root;
+            }
+            return left || right;  
+             
+        };
+
     </script>
 </body>
 
