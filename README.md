@@ -1,4 +1,8 @@
 # LeetCodePlus
-使用JavaScript刷算法
+前端算法大全
+使用JS和TS刷算法
+
+
+
 
 LeetCode：https://leetcode-cn.com/
