@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>版本号排序</title>
+</head>
+
+<body>
+    <script>
+        function versionSort(arr) {
+            return arr.sort((a, b) => {
+                let i = 0;
+                const arr1 = a.split(".");
+                const arr2 = b.split(".");
+                while (true) {
+                    const s1 = arr1[i];
+                    const s2 = arr2[i];
+                    i++;
+                    if (s1 === undefined || s2 === undefined) {
+                        return arr2.length - arr1.length;
+                    }
+                    if (s1 === s2) continue;
+                    return s2 - s1;
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
