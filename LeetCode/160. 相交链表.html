@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相交链表</title>
+</head>
+
+<body>
+    <script>
+        // https://leetcode.cn/problems/intersection-of-two-linked-lists/description/
+        /**
+         * @param {ListNode} headA
+         * @param {ListNode} headB
+         * @return {ListNode}
+         */
+        var getIntersectionNode = function (headA, headB) {
+            if (headA === null || headB === null) {
+                return null;
+            }
+
+            let pA = headA;
+            let pB = headB;
+
+            // 当pA和pB不相等时继续循环
+            while (pA !== pB) {
+                pA = pA === null ? headB : pA.next;
+                pB = pB === null ? headA : pB.next;
+            }
+
+            return pA;
+        };
+    </script>
+</body>
+
+</html>
